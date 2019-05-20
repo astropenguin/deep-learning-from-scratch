@@ -14,6 +14,13 @@ ipython = "*"
 scikit-learn = "*"
 pandas = "*"
 astropy = "*"
+jupyterthemes = "*"
+xarray = "*"
+netcdf4 = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+jupyter = "jupyter notebook"
