@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# .env cleanup
+sort .env | uniq - .env.new
+rm .env && mv .env.new .env
+
+# IPython startup
+cat << EOS > $IPYTHONDIR/profile_default/startup/00.py
+import os
+import re
+import sys
+import time
+from datetime import datetime
+from pathlib import Path
+
+import numpy as np
+import xarray as xr
+import pandas as pd
+import matplotlib.pyplot as plt
+EOS
+
+# matplotlib backend settings
+echo 'backend: TkAgg' > $MATPLOTLIBRC/matplotlibrc
+
+# Jupyter themes
+jt -t grade3 -cellw 97% -f source -nf sourcesans -tf sourcesans
